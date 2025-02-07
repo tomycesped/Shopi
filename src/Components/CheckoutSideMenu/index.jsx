@@ -35,7 +35,7 @@ const CheckoutSideMenu = () => {
   const handleCheckout = () => {
     if (context.cartProducts.length === 0) {
       setShowEmptyCartMessage(true);
-      setTimeout(() => setShowEmptyCartMessage(false), 4000);
+      setTimeout(() => setShowEmptyCartMessage(false), 2000);
       return;
     }
 
@@ -94,7 +94,7 @@ const CheckoutSideMenu = () => {
         {/* Mensaje de error cuando el carrito está vacío */}
         {showEmptyCartMessage && (
           <p className="text-red-500 text-center font-bold mb-2 bg-white border border-black rounded-lg w-auto">
-            ¡Tu carrito está vacío!
+            Your cart is empty
           </p>
         )}
 

@@ -13,8 +13,8 @@ function Home() {
           <Card key={item.id} data={item} /> 
         )))} else {
           return (
-            <div className="justify-center">
-              <span>We dont have that</span>
+            <div className="justify-center w-full">
+              <span>No results found.</span>
             </div>
           )
         }
