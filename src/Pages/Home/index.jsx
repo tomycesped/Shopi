@@ -13,7 +13,7 @@ function Home() {
           <Card key={item.id} data={item} /> 
         )))} else {
           return (
-            <div className="justify-center w-full">
+            <div className="flex absolute justify-center w-full mt-5">
               <span>No results found.</span>
             </div>
           )
