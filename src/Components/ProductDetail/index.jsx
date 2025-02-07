@@ -1,14 +1,31 @@
-import { XMarkIcon } from "@heroicons/react/24/solid"
-import { useContext } from "react"
-import { ShoppingCartContext } from "../../Context"
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import { useContext, useEffect, useRef } from "react";
+import { ShoppingCartContext } from "../../Context";
 
 const ProductDetail = () => {
-    const context = useContext(ShoppingCartContext)
-    return(
+    const context = useContext(ShoppingCartContext);
+    const asideRef = useRef(null); // Referencia al aside
+
+    // Función para cerrar el detalle si se hace clic fuera
+    const handleClickOutside = (event) => {
+        if (asideRef.current && !asideRef.current.contains(event.target)) {
+            context.closeProductDetail();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    return (
         <aside 
+            ref={asideRef}
             className={`w-[15.5%] h-[calc(100vh-68px)] flex flex-col fixed left-0 border border-white rounded-lg bg-green-950 z-2
             transition-transform duration-300 ease-in-out 
-            ${context.isProductDetailOpen ? 'translate-x-0' : '-translate-x-full'}`}
+            ${context.isProductDetailOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
             <div className="flex justify-between items-center py-4">
                 <h2 className="font-medium text-xl text-white pl-4">Detail</h2>
@@ -25,7 +42,7 @@ const ProductDetail = () => {
                 <span className="font-light text-sm text-gray-400">{context.productToShow.description}</span>
             </p>
         </aside>
-    )
-}
+    );
+};
 
-export default ProductDetail
+export default ProductDetail;

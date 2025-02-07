@@ -4,7 +4,9 @@ function SignIn() {
     return (
       <>
         <Layout>
-          Sign In
+          <div className="justify-center mt-[-50px]">
+           <span>Sign In</span>
+          </div>
         </Layout>
       </>
     )

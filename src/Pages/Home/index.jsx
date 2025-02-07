@@ -13,8 +13,8 @@ function Home() {
           <Card key={item.id} data={item} /> 
         )))} else {
           return (
-            <div>
-              We dont have that
+            <div className="justify-center">
+              <span>We dont have that</span>
             </div>
           )
         }
@@ -27,12 +27,20 @@ function Home() {
   }
   return (
     <>
-      <Layout>
+    <p className="text-xs absolute pl-1 font-extralight">Hecho con amor por @tomcesped 🖤
+          </p>
+          <p className="text-xs absolute mt-4 pl-1 font-extralight">
+            API controlada por Platzi
+          </p>
+      <Layout>  
       <div className="w-80 items-center relative just ify-center mb-4 mt-[-50px]">
-            <h1 className="font-medium text-xl">Busca en Shopi</h1>
+            <h1 className="font-medium text-xl">Find something you like:</h1>
             <input 
-          type="text" placeholder="Search..." 
-          className="rounded-lg border border-black w-80 p-3 mb-1 focus:outline-none"
+          type="text" 
+          placeholder="Search..."
+          onFocus={(e) => (e.target.dataset.placeholder = e.target.placeholder, e.target.placeholder = "")}
+          onBlur={(e) => (e.target.placeholder = e.target.dataset.placeholder)}
+          className="rounded-lg border border-black w-80 p-3 mb-1 focus:outline-none bg-green-50"
           onChange={(event) => context.setSearchByTitle(event.target.value)}/>
           </div>
           

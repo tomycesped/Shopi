@@ -3,7 +3,10 @@ import Layout from "../../Components/Layout";
 function MyAccount() {
     return (
         <Layout>
-          My Account
+          <div className="justify-center mt-[-50px]">
+          <span>My Account</span>
+          </div>
+          
           </Layout>
     )
   }

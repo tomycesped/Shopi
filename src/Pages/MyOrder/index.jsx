@@ -14,7 +14,7 @@ function MyOrder() {
       <>
         <Layout>
         <div className="w-120 items-center relative justify-center flex mb-3 mt-[-50px]" >
-            <Link to="/my-orders" className="absolute left-0">
+            <Link to="/Shopi/my-orders" className="absolute left-0">
             <ChevronLeftIcon className="size-8 text-black cursor-pointer border-2 border-black rounded-full"/>
             </Link>
             <h1>My Order</h1>

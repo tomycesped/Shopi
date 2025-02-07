@@ -12,17 +12,17 @@ import './App.css'
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    {path: '/',  element: <Home />},
-    {path: '/clothes',  element: <Home />},
-    {path: '/electronics',  element: <Home />},
-    {path: '/furnitures',  element: <Home />},
-    {path: '/toys',  element: <Home />},{path: '/others',  element: <Home />},
-    {path: '/my-account',  element: <MyAccount />},
-    {path: '/my-order',  element: <MyOrder />},
-    {path: '/my-orders',  element: <MyOrders />},
-    {path: '/my-orders/last',  element: <MyOrder />},
-    {path: '/my-orders/:id',  element: <MyOrder />},
-    {path: '/sign-in',  element: <SignIn />},
+    {path: '/Shopi',  element: <Home />},
+    {path: '/Shopi/clothes',  element: <Home />},
+    {path: '/Shopi/electronics',  element: <Home />},
+    {path: '/Shopi/furnitures',  element: <Home />},
+    {path: '/Shopi/toys',  element: <Home />},{path: '/Shopi/others',  element: <Home />},
+    {path: '/Shopi/my-account',  element: <MyAccount />},
+    {path: '/Shopi/my-order',  element: <MyOrder />},
+    {path: '/Shopi/my-orders',  element: <MyOrders />},
+    {path: '/Shopi/my-orders/last',  element: <MyOrder />},
+    {path: '/Shopi/my-orders/:id',  element: <MyOrder />},
+    {path: '/Shopi/sign-in',  element: <SignIn />},
     {path: '/*',  element: <NotFound />},
     
 
