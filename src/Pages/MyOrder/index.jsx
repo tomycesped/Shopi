@@ -51,7 +51,7 @@ function MyOrder() {
           <div className="text-center absolute left-1/2 transform -translate-x-1/2">
             <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Order Details</h1>
             {currentOrder && (
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-gray-500 mt-1 mb-2">
                 {orderDate} • {currentOrder.totalProducts} items • ${currentOrder.totalPrice.toFixed(2)}
               </p>
             )}
