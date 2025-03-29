@@ -2,13 +2,13 @@ import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
 import { ShoppingCartIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import logo from '../../images/logonopadding.png';
 
 const Navbar = () => {
   const context = useContext(ShoppingCartContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeStyle = "underline underline-offset-4";
 
-  // Cerrar menú al cambiar a pantalla grande
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -34,7 +34,6 @@ const Navbar = () => {
     { to: "/Shopi/sign-in", text: "Sign In" }
   ];
 
-  // Animación de escalera para los items
   const StaggeredItem = ({ children, index }) => (
     <div 
       className="opacity-0 transform -translate-y-4"
@@ -49,7 +48,6 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center fixed z-50 w-full py-5 px-8 text-sm font-light top-0 bg-white shadow-sm">
-      {/* Logo y categorías (izquierda) */}
       <div className="flex items-center gap-4">
         <button 
           className="lg:hidden p-1 rounded-md hover:bg-gray-100 transition-colors"
@@ -71,7 +69,7 @@ const Navbar = () => {
             context.setSearchByTitle(null);
           }}
         >
-          Shopi
+        <img src={logo} alt="logo" className="h-6 mt-1" />
         </NavLink>
         
         <ul className="hidden lg:flex items-center gap-6 ml-6">
@@ -93,11 +91,9 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-
-      {/* Menú hamburguesa - Versión fullscreen con animación */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 bg-white pt-24 px-6 overflow-y-auto">
-          {/* Botón de cerrar en la parte superior derecha */}
+          <img src={logo} alt="logo" className="absolute top-6 left-6 p-2 h-10"/>
           <button 
             className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors"
             onClick={() => setIsMenuOpen(false)}
@@ -107,7 +103,6 @@ const Navbar = () => {
           </button>
 
           <div className="max-w-md mx-auto">
-            {/* Categorías con animación escalonada */}
             <ul className="space-y-3 mb-8">
               {categories.map((item, index) => (
                 <StaggeredItem key={item.to} index={index}>
@@ -133,11 +128,7 @@ const Navbar = () => {
                 </StaggeredItem>
               ))}
             </ul>
-
-            {/* Separador */}
             <div className="border-t border-gray-200 my-6"></div>
-
-            {/* Menú de usuario con animación escalonada */}
             <ul className="space-y-3">
               <StaggeredItem index={categories.length}>
                 <li className="px-4 py-2 text-gray-500">Hello! Thomas</li>
@@ -161,8 +152,6 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-
-          {/* Estilos para la animación */}
           <style jsx>{`
             @keyframes fadeInUp {
               from {
@@ -177,8 +166,6 @@ const Navbar = () => {
           `}</style>
         </div>
       )}
-
-      {/* Navegación derecha (solo desktop) */}
       <div className="hidden lg:flex items-center gap-6">
         <ul className="flex items-center gap-6">
           <li className="text-gray-500">Hello! Thomas</li>
@@ -214,8 +201,6 @@ const Navbar = () => {
           )}
         </div>
       </div>
-
-      {/* Carrito (mobile) */}
       <div className="lg:hidden flex items-center">
         <div
           className="flex items-center cursor-pointer no-close relative"

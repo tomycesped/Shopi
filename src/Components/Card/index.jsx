@@ -7,7 +7,6 @@ const Card = (data) => {
   const [hovered, setHovered] = useState(false);
 
   const showProduct = (productDetail) => {
-    console.log("Product clicked:", productDetail);
     context.openProductDetail(productDetail);
     context.closeCheckoutSideMenu();
   };
@@ -54,12 +53,11 @@ const Card = (data) => {
 
   return (
     <div className="w-full">
-      {/* Versión Mobile/Lista */}
       <div className="md:hidden mb-4 bg-gradient-to-r from-white to-gray-100 rounded-lg shadow-md overflow-hidden">
         <div className="flex p-3 cursor-pointer" onClick={() => showProduct(data.data)}>
           <div className="relative flex-shrink-0 w-24 h-24">
             <img
-              className="w-full h-full object-cover rounded-lg transition-transform duration-200 group-hover:scale-105"
+              className="w-full h-full object-cover rounded-lg transition-transform duration-200 hover:scale-105"
               src={data.data.images[0]}
               alt={data.data.title}
               loading="lazy"
@@ -78,25 +76,22 @@ const Card = (data) => {
         </div>
       </div>
 
-      {/* Versión Desktop */}
       <div
         onClick={() => showProduct(data.data)}
-        className="hidden md:block cursor-pointer w-full h-full bg-gradient-to-r from-white to-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex-col group"
+        className="hidden md:block cursor-pointer w-full h-full bg-gradient-to-r from-white to-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
       >
-        <figure className="relative w-full pt-[100%] overflow-hidden">
-          <div className="absolute inset-0">
-            <span className="absolute bottom-0 left-0 bg-white/80 rounded-lg text-black text-xs m-2 px-3 py-0.5 z-10">
-              {data.data.category.name}
-            </span>
-            <img
-              className="w-full h-full object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105"
-              src={data.data.images[0]}
-              alt={data.data.title}
-              loading="lazy"
-            />
-            {renderIcon(data.data.id)}
-          </div>
-        </figure>
+        <div className="relative w-full pt-[100%] overflow-hidden rounded-t-lg">
+          <img
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
+            src={data.data.images[0]}
+            alt={data.data.title}
+            loading="lazy"
+          />
+          <span className="absolute bottom-0 left-0 bg-white/80 rounded-lg text-black text-xs m-2 px-3 py-0.5">
+            {data.data.category.name}
+          </span>
+          {renderIcon(data.data.id)}
+        </div>
         <div className="p-3 flex-grow flex flex-col">
           <p className="flex justify-between items-center">
             <span className="text-sm font-medium">{data.data.title}</span>
