@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
               </NavLink>
               <span className='text-gray-600'>by</span>
               <a 
-                href="https://tomcesped.vercel.app" 
+                href="https://www.tomcesped.me" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
